@@ -5,6 +5,7 @@ import { UofxCameraPlugin, UofxGeolocationPlugin, UofxToastPlugin } from '@uofx/
 import { BpmFwWriteComponent } from '@uofx/app-components/form';
 import { ChangeDetectorRef } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { TemplateFieldExProps } from 'src/app/web/template-field/props/template-field.props.component';
 import { UofxFormTools } from '@uofx/web-components/form';
 
 @Component({
@@ -16,7 +17,7 @@ export class TemplateFieldComponent extends BpmFwWriteComponent implements OnIni
   // label: string = '🎉Hello World';
   form: FormGroup;
   value: any;
-
+  props:TemplateFieldExProps
   constructor(private uofxGeolocation: UofxGeolocationPlugin, private cdr: ChangeDetectorRef,
     private uofxToast: UofxToastPlugin, private uofxCamera: UofxCameraPlugin,
     private fb: FormBuilder, private modalController: ModalController) {

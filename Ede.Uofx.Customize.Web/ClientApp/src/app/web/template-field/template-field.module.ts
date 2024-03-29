@@ -20,7 +20,10 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TableModule } from 'primeng/table';
+import { TemplateFieldDesignComponent } from './design/template-field.design.component';
+import { TemplateFieldPrintComponent } from './print/template-field.print.component';
 import { TemplateFieldPropsComponent } from './props/template-field.props.component';
+import { TemplateFieldViewComponent } from './view/template-field.view.component';
 import { TemplateFieldWriteComponent } from './write/template-field.write.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UofxButtonModule } from '@uofx/web-components/button';
@@ -65,7 +68,7 @@ UofxLoadingModule,
 /*修改*/
 /*置換component名稱*/
 
-const COMPONENTS = [TemplateFieldPropsComponent, TemplateFieldWriteComponent];
+const COMPONENTS = [TemplateFieldPropsComponent, TemplateFieldWriteComponent,TemplateFieldPrintComponent,TemplateFieldViewComponent,TemplateFieldDesignComponent];
 
 const BASIC_SERVICES = [
   { provide: BASIC_HTTP_HANDLER, useClass: BasicHttpHandler },
@@ -86,7 +89,8 @@ const BASIC_SERVICES = [
       { path: 'design', component: TemplateFieldWriteComponent },
       { path: 'props', component: TemplateFieldPropsComponent },
       { path: 'write', component: TemplateFieldWriteComponent },
-      { path: 'view', component: TemplateFieldWriteComponent },
+      { path: 'view', component: TemplateFieldViewComponent },
+      { path: 'print', component: TemplateFieldPrintComponent },
       //有app開發後再實作這段
       {
         path: 'app',
@@ -107,9 +111,9 @@ const BASIC_SERVICES = [
 export class TemplateFieldModule {
   static comp = {
     props: TemplateFieldPropsComponent,
-    design: TemplateFieldWriteComponent,
+    design: TemplateFieldDesignComponent,
     write: TemplateFieldWriteComponent,
-    view: TemplateFieldWriteComponent,
-    print: TemplateFieldWriteComponent,
+    view: TemplateFieldViewComponent,
+    print: TemplateFieldPrintComponent,
   };
 }

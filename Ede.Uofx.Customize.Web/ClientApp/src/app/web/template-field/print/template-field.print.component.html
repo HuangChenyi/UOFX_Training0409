@@ -1,0 +1,23 @@
+
+<div class="fw-control">
+  <table >
+    <tr>
+      <!-- hello world 顯示歡迎訊息 -->
+      <th colspan="3">
+        <span n *ngIf="exProps?.isShowHelloWorld ? true : false"
+          >hello 外掛欄位 print mode</span
+        >
+      </th>
+    </tr>
+    <tr>
+      <td colspan="3">
+
+       {{this.value.message}}
+
+
+      </td>
+    </tr>
+  </table>
+</div>
+
+

@@ -1,4 +1,4 @@
-{
+﻿{
   "fieldGroups": [
     {
       "code": "group1",
@@ -6,7 +6,6 @@
     }
   ],
   "fields": [
-
     {
       "group": "group1",
       "code": "template-field",
