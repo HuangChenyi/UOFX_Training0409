@@ -1,0 +1,657 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ede.Uofx.PubApi.Sdk.NetStd</name>
+    </assembly>
+    <members>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.AesCrptProvider.EcbEncodeData(System.String,System.String)">
+            <summary>
+            ECB 模式加密
+            </summary>
+            <param name="sourceContent"></param>
+            <param name="cryptoKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.AesCrptProvider.EcbDecodeData(System.String,System.String)">
+            <summary>
+            ECB 模式解密
+            </summary>
+            <param name="enSourceContent"></param>
+            <param name="cryptoKey"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.CrptContent.EncMessageBase64">
+            <summary>
+            AES 加密後內容
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.AesModel.EncAesKey">
+            <summary>
+            RSA 加密後AESKey
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.AesModel.EncAesIv">
+            <summary>
+            RSA 加密後AES IV
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.AesContent.AesKey">
+            <summary>
+            AESKey
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.AesContent.AesIv">
+             <summary>
+            AES IV
+             </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.AesContent.EncMessage">
+            <summary>
+            AES 加密後內容
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.MixRsaAesCrptProvider.EncodeData(System.String,System.String)">
+            <summary>
+            加密內容
+            </summary>
+            <param name="sourceContent"></param>
+            <param name="rsaPublicKeyBase64"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Crypt.MixRsaAesCrptProvider.DecodeData(Ede.Uofx.PubApi.Sdk.NetStd.Crypt.CrptContent,System.String)">
+            <summary>
+            解密內容
+            </summary>
+            <param name="content"></param>
+            <param name="rsaPublicKeyBase64"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.UserType.Account">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.UserType.EmployeeNo">
+            <summary>
+            員編
+            </summary>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.SupervisorType">
+            <summary>
+            簽核主管類型
+            </summary>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.SupervisorType.DeptManager">
+            <summary>
+            依部門主管
+            </summary>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.SupervisorType.Customize">
+            <summary>
+            依自訂簽核主管
+            </summary>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.Exceptions.ErrorCode.Sdk.KeyInvalid">
+            <summary>
+            不合法的金鑰
+            </summary>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.Exceptions.ErrorCode.Sdk.BodyInvalid">
+            <summary>
+            不合法的 Model
+            </summary>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.Exceptions.ErrorCode.FormSchema.SchemaInvalid">
+            <summary>
+            不合法的 Schema
+            </summary>
+        </member>
+        <member name="F:Ede.Uofx.PubApi.Sdk.NetStd.Exceptions.ErrorCode.FormSchema.FieldNotFound">
+            <summary>
+            表單欄位遺失
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Helpers.ApiHelper.POSTAsync``2(System.String,``1)">
+            <summary>
+            加密並呼叫 Uof X api
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="url">Ex: ~/api/public/sample</param>
+            <param name="model"></param>
+            <returns>Trace Id</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Helpers.Helper.ModelToBase64``1(``0)">
+            <summary>
+            將 Model 轉為 Base64 String
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Helpers.Helper.Base64ToModel``1(System.String)">
+            <summary>
+            將 Base64 轉回 Model
+            </summary>
+            <typeparam name="TModel"></typeparam>
+            <param name="base64Model"></param>
+            <returns>throw ErrorCodes.Global.ModelDeserializeFailure</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Helpers.Helper.ConvertKey(System.String)">
+            <summary>
+            將通訊金鑰轉成可使用的 model
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Interfaces.IAccountModel.Account">
+            <summary>
+            呼叫的使用者帳號，需在 UOF X 系統有對應一樣的帳號
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Interfaces.IAccountModel.CorpCode">
+            <summary>
+            公司代號，兼職人員需填原公司之代號 (兼職才須填)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Interfaces.IFormApplyModel.Key">
+            <summary>
+            使用者部門代碼
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Interfaces.IRequestModel.CallBackUrl">
+            <summary>
+             UOF X 系統處理完要回覆的 api (非必須)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Interfaces.IRequestModel.CustomData">
+            <summary>
+            UOF X 系統處理完回覆 api 中，要附帶的資料 (非必須)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentMoveModel.ParentCode">
+            <summary>
+            移動到那個部門之下，如不填則移動到最上層
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentMoveModel.Seq">
+            <summary>
+            排序，由 0 開始
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentGetModel.IncludeSubDept">
+            <summary>
+            是否包含子部門
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentGetEmployeeModel.IncludeSubDept">
+            <summary>
+            是否包含子部門
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentBatchMoveResultModel.EnableDept">
+            <summary>
+            被啟用的部門
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentBatchMoveResultModel.DisableDept">
+            <summary>
+            被停用的部門
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentBatchMoveResultModel.DisableEmplOfAccount">
+            <summary>
+            被停用的使用者 (以帳號呈現)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentBatchMoveResultModel.DisableEmplOfBusinessCard">
+            <summary>
+            被停用的使用者 (以員編呈現)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.Account">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.Name">
+            <summary>
+            中文名稱
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.EnglishName">
+            <summary>
+            英文名稱
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.EmployeeNumber">
+            <summary>
+            員工編號
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.BusinessCard">
+            <summary>
+            名片職稱
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.Gender">
+            <summary>
+            性別
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.BirthDate">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.IdCardNumber">
+            <summary>
+            身分證字號
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.Enabled">
+            <summary>
+            啟用
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.Locked">
+            <summary>
+            鎖定
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.HireDate">
+            <summary>
+            離職日
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.ResignationDate">
+            <summary>
+            到職日
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.PhoneNumber">
+            <summary>
+            行動電話
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.Email">
+            <summary>
+            主要信箱
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.EmailEx">
+            <summary>
+            次要信箱
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmployeeInfoModel.DeptCode">
+            <summary>
+            部門代碼
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestBase.CorpCode">
+            <summary>
+            公司代號
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestBase.StartDate">
+            <summary>
+            時間起
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestBase.EndDate">
+            <summary>
+            時間訖
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestBase.TimeZoneId">
+            <summary>
+            時區Id (ex: "Taipei Standard Time")
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestBase.QueryPunchHistoryType">
+            <summary>
+            打卡類型類型(0:全部,1:出勤,2:外出)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestModel.UserType">
+            <summary>
+            人員資料類型(0:Account, 1:EmployeeNo)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestModel.UserCode">
+            <summary>
+            人員識別碼(依UserType填入對應值)
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.DeptUserPunchApiRequestModel.DeptCode">
+            <summary>
+            部門代號
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.DeptUserPunchApiRequestModel.ContainChild">
+            <summary>
+            包含子部門
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchInfoModel.PunchType">
+            <summary>
+            0:上班, 1:下班
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.FileChunkModel.FileGroupLimits">
+            <summary>
+            可上傳總量大小 byte
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Models.SampleRequestModel.Name">
+            <summary>
+            測試用可隨意給值
+            </summary>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE">
+            <summary>
+            組織基本資料與人員同步管理SDK
+            </summary>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobTitle">
+            <summary>
+            職稱
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobTitle.Get(System.String)">
+            <summary>
+            取得職稱
+            </summary>
+            <param name="corpCode">公司代號</param>
+            <returns>取得所有職稱的資料：公司代號、層級、代碼、職稱、狀態</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobTitle.Create(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobTitleViewModel)">
+            <summary>
+            建立工作職稱。
+            </summary>
+            <param name="model">工作職稱的檢視模型。</param>
+            <returns>表示建立是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobTitle.Update(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobTitleUpdateModel)">
+            <summary>
+            更新職稱。
+            </summary>
+            <param name="model">職稱更新模型。</param>
+            <returns>表示非同步操作的任務。任務結果包含一個布林值，指示更新是否成功。</returns>
+            <summary>
+            Updates a job title.
+            </summary>
+            <param name="model">The job title update model.</param>
+            <returns>A task representing the asynchronous operation. The task result contains a boolean value indicating whether the update was successful.</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobTitle.UpdateStatus(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobTitleUpdateStatusModel)">
+            <summary>
+            更新職稱狀態。
+            </summary>
+            <param name="model">職稱更新狀態模型。</param>
+            <returns>表示是否成功更新職稱狀態的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobTitle.UpdateSeq(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobTitleUpdateSeqModel)">
+            <summary>
+            更新工作職稱的順序。
+            </summary>
+            <param name="model">要更新的工作職稱順序模型。</param>
+            <returns>表示是否成功更新工作職稱順序的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobTitle.Delete(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobTitleDeleteModel)">
+            <summary>
+            刪除工作職稱。
+            </summary>
+            <param name="model">要刪除的工作職稱模型。</param>
+            <returns>表示是否成功刪除的布林值。</returns>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.DeptLevel">
+            <summary>
+            部門層級
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.DeptLevel.Get(System.String)">
+            <summary>
+            取得部門層級
+            </summary>
+            <param name="corpCode">公司代號</param>
+            <returns>所有部門層級的資料：公司代號、等級、代碼、名稱、狀態</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.DeptLevel.Create(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptLevelViewModel)">
+            <summary>
+            建立部門層級的方法。
+            </summary>
+            <param name="model">部門層級的資料模型。</param>
+            <returns>表示建立是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.DeptLevel.Update(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptLevelUpdateModel)">
+            <summary>
+            更新部門層級。
+            </summary>
+            <param name="model">部門層級更新模型。</param>
+            <returns>表示更新操作是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.DeptLevel.UpdateSeq(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptLevelUpdateSeqModel)">
+            <summary>
+            更新序列。
+            </summary>
+            <param name="model">部門層級更新序列模型。</param>
+            <returns>表示是否成功更新序列的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.DeptLevel.UpdateStatus(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptLevelUpdateStatusModel)">
+            <summary>
+            更新狀態。
+            </summary>
+            <param name="model">部門層級更新狀態模型。</param>
+            <returns>表示是否成功更新狀態的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.DeptLevel.Delete(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptLevelDeleteModel)">
+            <summary>
+            根據指定的模型刪除部門層級。
+            </summary>
+            <param name="model">包含要刪除的部門層級資訊的模型。</param>
+            <returns>表示異步操作的任務。任務結果包含一個布林值，指示刪除是否成功。</returns>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFunc">
+            <summary>
+            職務
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFunc.Get(System.String)">
+            <summary>
+            根據指定的 corpCode 檢索 JobFuncViewModel 物件的集合。
+            </summary>
+            <param name="corpCode">用於篩選 JobFuncViewModel 物件的 corpCode。</param>
+            <returns>JobFuncViewModel 物件的集合。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFunc.Create(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncViewModel)">
+            <summary>
+            建立職務類別的方法。
+            </summary>
+            <param name="model">職務類別的model。</param>
+            <returns>表示是否成功建立職務類別的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFunc.Update(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncUpdateModel)">
+            <summary>
+            更新職務類別。
+            </summary>
+            <param name="model">職務類別更新模型。</param>
+            <returns>表示更新是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFunc.UpdateSeq(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncUpdateSeqModel)">
+            <summary>
+            更新職務類別順序。
+            </summary>
+            <param name="model">要更新的職務類別順序模型。</param>
+            <returns>表示更新操作是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFunc.Delete(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncDeleteModel)">
+            <summary>
+            刪除職務類別。
+            </summary>
+            <param name="model">要刪除的職務類別模型。</param>
+            <returns>表示刪除操作是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFunc.UpdateStatus(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncUpdateStatusModel)">
+            <summary>
+            更新職務類別狀態。
+            </summary>
+            <param name="model">要更新的職務類別狀態模型。</param>
+            <returns>表示更新操作是否成功的布林值。</returns>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFuncCategory">
+            <summary>
+            職務類別
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFuncCategory.Update(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncCategoryUpdateModel)">
+            <summary>
+            更新職務類別。
+            </summary>
+            <param name="model">要更新的職務類別模型。</param>
+            <returns>表示更新是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFuncCategory.UpdateSeq(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncCategoryUpdateSeqModel)">
+            <summary>
+            更新職務類別的順序。
+            </summary>
+            <param name="model">職務類別更新順序的模型。</param>
+            <returns>表示更新是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.JobFuncCategory.Delete(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.JobFuncCategoryDeleteModel)">
+            <summary>
+            刪除職務類別。
+            </summary>
+            <param name="model">要刪除的職務類別模型。</param>
+            <returns>表示刪除操作是否成功的布林值。</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Create(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentCreateModel)">
+            <summary>
+            新增部門
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Update(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentUpdateModel)">
+            <summary>
+            更新部門資訊
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.UpdateState(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentUpdateStatusModel)">
+            <summary>
+            更新部門狀態
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Remove(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentRemoveModel)">
+            <summary>
+            刪除部門
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Get(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentGetModel)">
+            <summary>
+            取得部門清單
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Move(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentMoveModel)">
+            <summary>
+            移動部門順序與階層
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.GetEmployee(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentGetEmployeeModel)">
+            <summary>
+            取得部門成員
+            </summary>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Batch">
+            <summary>
+            批次處理
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Batch.MoveAndState(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DepartmentBatchMoveRequestModel)">
+            <summary>
+            移動部門順序與階層，並變更狀態
+            </summary>
+        </member>
+        <member name="T:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Manager">
+            <summary>
+            部門主管
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Manager.Get(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptManagerModel)">
+            <summary>
+            取得部門主管
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Manager.Set(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptSetManagerModel)">
+            <summary>
+            設定部門主管
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Department.Manager.Remove(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.DeptRemoveManagerModel)">
+            <summary>
+            移除部門主管
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.Permission.UpdateUserPermission">
+            <summary>
+            更新使用者權限，組織異動(部門、人員、職稱、職級、職務...)最後需透過此方式更新相關權限
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BASE.OrgEmpl.UpdateEmplMainDept(Ede.Uofx.PubApi.Sdk.NetStd.Models.Base.EmplUpdateMainDeptRequestModel)">
+            <summary>
+            變更人員主要部門
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.BPM.ApplyForm(System.Object)">
+            <summary>
+            外部起單
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.EIP.Punch.GetUserPunch(Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.UserPunchApiRequestModel)">
+            <summary>
+            取得單人出勤刷卡紀錄
+            </summary>
+            <returns>取得公司代號、人員帳號、員工編號、打卡時間(轉換後的時區)、打卡類型(上班/下班)、打卡名稱</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.EIP.Punch.GetDeptUserPunch(Ede.Uofx.PubApi.Sdk.NetStd.Models.Eip.DeptUserPunchApiRequestModel)">
+            <summary>
+            取得單人出勤刷卡紀錄
+            </summary>
+            <returns>取得公司代號、人員帳號、員工編號、打卡時間(轉換後的時區)、打卡類型(上班/下班)、打卡名稱</returns>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.File.FileUpload(System.String)">
+            <summary>
+            檔案上傳
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.File.FileUpload(System.IO.FileStream)">
+            <summary>
+            檔案上傳
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.Sample.SendSampleApiAsync(Ede.Uofx.PubApi.Sdk.NetStd.Models.SampleRequestModel)">
+            <summary>
+            用來測試或 demo
+            </summary>
+            <param name="model"></param>
+            <returns>Trace Id</returns>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.UofxServerUrl">
+            <summary>
+            UOF X 站台位址, ex: http://localhost
+            </summary>
+        </member>
+        <member name="P:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.Key">
+            <summary>
+            UOF X 通訊金鑰 (公司管理員提供)
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.DecodeCallBack``1(System.String)">
+            <summary>
+            解密 callback body
+            </summary>
+        </member>
+        <member name="M:Ede.Uofx.PubApi.Sdk.NetStd.Service.UofxService.DecodeCallBack(System.String)">
+            <summary>
+            解密 callback body
+            </summary>
+        </member>
+    </members>
+</doc>
