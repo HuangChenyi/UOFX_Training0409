@@ -4,23 +4,34 @@
 </div>
 <div class="fw-control">
   <table [formGroup]="form">
-    <tr>
-      <!-- hello world 顯示歡迎訊息 -->
-      <th colspan="3">
-        <span n *ngIf="exProps?.isShowHelloWorld ? true : false"
-          >hello 外掛欄位 write mode</span
-        >
-      </th>
-    </tr>
-    <tr>
-      <td colspan="3">
+  <tr>
+    <td>
+    <label for="companyName">公司名稱:</label>
+    </td>
+    <td>
+    <input type="text" id="companyName" formControlName="companyName">
+    <uofx-form-error-tip [control]="form.controls.companyName"></uofx-form-error-tip>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="address">地址:</label>
+    </td>
+    <td>
+      <input type="text" id="address" formControlName="address">
+      <uofx-form-error-tip [control]="form.controls.address"></uofx-form-error-tip>
 
-        <input type="text" pInputText formControlName="message"/>
-
-        <uofx-form-error-tip [control]="form?.controls.message">
-        </uofx-form-error-tip>
-      </td>
-    </tr>
+    </td>
+  </tr>
+  <tr>
+    <td>
+    <label for="phone">電話:</label>
+    </td>
+    <td>
+    <input type="text" id="phone" formControlName="phone">
+    <uofx-form-error-tip [control]="form.controls.phone"></uofx-form-error-tip>
+    </td>
+  </tr>
   </table>
 </div>
 
