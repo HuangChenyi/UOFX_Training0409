@@ -1,0 +1,68 @@
+<p-dialog #pDialog [(visible)]="visible" >
+  <ng-template pTemplate="header">
+    <uofx-dialog-header>
+       <!-- Dialog 表頭顯示處理 -->
+     </uofx-dialog-header>
+  </ng-template>
+  <ng-template pTemplate="content">
+    <uofx-dialog-body>
+      <div class="padding-3x">
+         <!-- Dialog 表身顯示處理 -->
+         <!-- 通常是放明細內容或需編輯內容-->
+
+        <p-table [value]="gridData" styleClass="p-datatable-gridlines" [scrollable]="true"
+
+          [rowHover]="true"  [rows]="10" [paginator]="true" [showCurrentPageReport]="true"
+          [alwaysShowPaginator]="false"
+          currentPageReportTemplate="{currentPage} of {totalPages} pages ({totalRecords} items)">
+          <ng-template pTemplate="emptymessage">
+            <tr class="datatable-empty">
+              <td>
+                <span [translate]="'global.comm.grid.empty'"></span>
+              </td>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th></th>
+              <th>公司名稱</th>
+              <th>地址</th>
+              <th>電話</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-item>
+            <tr>
+              <Td>
+                <button
+                   class="e-btn u-btn-primary buttons-opposite"
+                    data-ripple="true"
+                   (click)="selectItem(item)">請選擇
+                 </button>
+              </Td>
+              <td>
+                {{ item.companyName }}
+              <td>
+                {{ item.address }}
+              </td>
+              <td>
+                {{ item.phone }}
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+
+      </div>
+    </uofx-dialog-body>
+  </ng-template>
+  <ng-template pTemplate="footer">
+    <uofx-dialog-footer>
+      <button
+         class="e-btn u-btn-primary buttons-opposite"
+          data-ripple="true"
+         (click)="close()">關閉視窗
+       </button>
+         <!-- Dialog 表尾顯示處理 -->
+         <!-- 通常是放Button(EX:確定、關閉視窗.....) -->
+    </uofx-dialog-footer>
+  </ng-template>
+</p-dialog>

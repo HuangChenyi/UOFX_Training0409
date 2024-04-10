@@ -24,7 +24,8 @@ namespace ConsoleApp1
             var dept = emp.Depts.FirstOrDefault();
 
             //上傳附件
-            var file = await UofxService.File.FileUpload("D:/採購資訊.pdf");
+            var file = await UofxService.File.FileUpload
+                ("D:/採購資訊.pdf");
            
             var item = new FileItem() { Id= file.Id,FileName=file.FileName};
             

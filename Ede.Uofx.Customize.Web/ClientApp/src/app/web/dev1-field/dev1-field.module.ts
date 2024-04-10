@@ -14,17 +14,16 @@ import { ButtonModule } from 'primeng/button';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CommonModule } from '@angular/common';
+import { DemoService } from '@service/demoService';
+import { Dev1FieldPropsComponent } from './props/dev1-field.props.component';
+import { Dev1FieldWriteComponent } from './write/dev1-field.write.component';
 import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { SelectDataComponent } from './select-data/select-data.component';
 import { TableModule } from 'primeng/table';
-
-
-import { Dev1FieldPropsComponent } from './props/dev1-field.props.component';
-
-import { Dev1FieldWriteComponent } from './write/dev1-field.write.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { UofxButtonModule } from '@uofx/web-components/button';
 import { UofxDialogModule } from '@uofx/web-components/dialog';
@@ -71,8 +70,10 @@ UofxLoadingModule,
 const COMPONENTS = [Dev1FieldPropsComponent, Dev1FieldWriteComponent];
 
 const BASIC_SERVICES = [
-  { provide: BASIC_HTTP_HANDLER, useClass: BasicHttpHandler },
-  BasicHttpClient,
+  { provide: BASIC_HTTP_HANDLER, useClass: BasicHttpHandler,
+    DemoService
+  },
+  BasicHttpClient,DemoService
 ];
 
 /*修改*/
@@ -103,7 +104,7 @@ const BASIC_SERVICES = [
   ],
   providers: [BASIC_SERVICES, UofxPluginApiService],
   exports: [...COMPONENTS],
-  declarations: [...COMPONENTS],
+  declarations: [...COMPONENTS, SelectDataComponent],
 })
 
 /*修改*/
