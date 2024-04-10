@@ -1,11 +1,26 @@
 ﻿{
-
   "template-field": {
     "exposedModule": "./TemplateField",
     "moduleName": "TemplateFieldModule",
     "app": {
       "exposedModule": "./TemplateField",
       "moduleName": "FieldHelloWorldAppModule"
+    }
+  },
+  "demo-field": {
+    "exposedModule": "./DemoField",
+    "moduleName": "DemoFieldModule",
+    "app": {
+      "exposedModule": "./DemoField",
+      "moduleName": "FieldHelloWorldAppModule"
+    }
+  },
+  "dev1-field": {
+    "exposedModule": "./Dev1Field",
+    "moduleName": "Dev1FieldModule",
+    "app": {
+      "exposedModule": "./Dev1Field",
+      "moduleName": "Dev1FieldAppModule"
     }
   }
 }

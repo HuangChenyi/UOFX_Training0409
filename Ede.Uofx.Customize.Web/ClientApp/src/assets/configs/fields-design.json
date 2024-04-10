@@ -3,6 +3,10 @@
     {
       "code": "group1",
       "name": "群組一"
+    },
+    {
+      "code": "group2",
+      "name": "群組2"
     }
   ],
   "fields": [
@@ -16,6 +20,30 @@
         "defaultRows": 1,
         "minCols": 1,
         "minRows": 1
+      }
+    },
+    {
+      "group": "group1",
+      "code": "demo-field",
+      "name": "demo-field",
+      "icon": "assets/icons/u-plugin-form.svg",
+      "sizeConfig": {
+        "defaultCols": 2,
+        "defaultRows": 1,
+        "minCols": 1,
+        "minRows": 1
+      }
+    },
+    {
+      "group": "group2",
+      "code": "dev1-field",
+      "name": "外掛範例1",
+      "icon": "assets/icons/u-plugin-form.svg",
+      "sizeConfig": {
+        "defaultCols": "2",
+        "defaultRows": "1",
+        "minCols": "1",
+        "minRows": "1"
       }
     }
   ]
