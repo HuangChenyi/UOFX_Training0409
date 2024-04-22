@@ -73,7 +73,7 @@ const BASIC_SERVICES = [
   { provide: BASIC_HTTP_HANDLER, useClass: BasicHttpHandler,
     DemoService
   },
-  BasicHttpClient,DemoService
+  BasicHttpClient,DemoService,UofxPluginApiService
 ];
 
 /*修改*/

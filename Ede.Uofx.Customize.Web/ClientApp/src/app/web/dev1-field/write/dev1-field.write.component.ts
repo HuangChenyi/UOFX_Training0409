@@ -8,6 +8,7 @@
 
 import {
   AbstractControl,
+  FormControl,
   UntypedFormBuilder,
   UntypedFormGroup,
   ValidationErrors,
@@ -20,6 +21,8 @@ import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { Dev1FieldExProps } from '../props/dev1-field.props.component';
 import { SelectDataComponent } from '../select-data/select-data.component';
 import { UofxDialogController } from '@uofx/web-components/dialog';
+import { UofxPluginApiService } from '@uofx/plugin-api';
+import { zip } from 'rxjs';
 
 /*修改*/
 /*↑↑↑↑修改import 各模式的Component↑↑↑↑*/
@@ -35,20 +38,21 @@ import { UofxDialogController } from '@uofx/web-components/dialog';
 /*置換className*/
 export class Dev1FieldWriteComponent
   extends BpmFwWriteComponent
-  implements OnInit
-{
+  implements OnInit {
 
   /*修改*/
   /*置換className*/
   @Input() exProps: Dev1FieldExProps;
-  @Input() value:CustomerInfo;
-
+  @Input() value: CustomerInfo;
+  textboxCtrl = new FormControl();
+  empNo: string
   form: UntypedFormGroup;
   constructor(
     private cdr: ChangeDetectorRef,
     private fb: UntypedFormBuilder,
     private tools: UofxFormTools,
-    private dialogCtrl: UofxDialogController
+    private dialogCtrl: UofxDialogController,
+    private pluginService: UofxPluginApiService
   ) {
     super();
   }
@@ -58,6 +62,27 @@ export class Dev1FieldWriteComponent
   ngOnInit(): void {
 
     this.initForm();
+
+    if (this.taskNodeInfo?.applicantId) {
+      zip(
+        this.pluginService.getCorpInfo().toPromise(),
+        this.pluginService.getUserInfo(this.taskNodeInfo.applicantId).toPromise()
+      ).subscribe({
+        next: ([corpInfo, empInfo]) => {
+          if (empInfo) {
+            // 取得員工編號
+            this.empNo = empInfo.name;
+          }
+
+        },
+        complete: () => {
+
+          // 讓畫面更新
+          this.cdr.detectChanges();
+        }
+      });
+
+    }
 
     this.parentForm.statusChanges.subscribe((res) => {
       if (res === 'INVALID' && this.selfControl.dirty) {
@@ -78,16 +103,15 @@ export class Dev1FieldWriteComponent
     this.cdr.detectChanges();
   }
 
-  open()
-  {
-      this.dialogCtrl.createFullScreen({
-        component: SelectDataComponent,
-        params: {
-           /*開窗要帶的參數*/
-           url:this.pluginSetting.entryHost
-        }
-      }).afterClose.subscribe({
-        next: res => {
+  open() {
+    this.dialogCtrl.createFullScreen({
+      component: SelectDataComponent,
+      params: {
+        /*開窗要帶的參數*/
+        url: this.pluginSetting.entryHost
+      }
+    }).afterClose.subscribe({
+      next: res => {
         /*關閉視窗後處理的訂閱事件*/
         if (res) {
           this.form.get('companyName').setValue(res.companyName);
@@ -97,10 +121,10 @@ export class Dev1FieldWriteComponent
 
         }
       }
-      });
+    });
 
   }
-
+  errorMsg: string;
   initForm() {
     this.form = this.fb.group({
       companyName: [this.value?.companyName || '', Validators.required],
@@ -116,20 +140,69 @@ export class Dev1FieldWriteComponent
   }
 
   /*判斷如果是儲存不用作驗證*/
-  checkBeforeSubmit(): Promise<boolean> {
-    return new Promise((resolve) => {
-      const value = this.form.value;
-      resolve(true);
-    });
-  }
-}
+  checkBeforeSubmit(checkValidator: boolean): Promise<boolean> {
 
+    // 儲存不需要驗證，直接回傳true
+    if (!checkValidator) {
+      return new Promise((resolve) => {
+        resolve(true);
+      });
+    }
+    else {
+
+      return new Promise((resolve) => {
+
+        if (checkValidator) {
+          return this.checkFieldValid(resolve);
+        }
+        else {
+          resolve(true);
+        }
+      });
+    }
+  }
+
+    /** 實作送出前驗證 */
+    checkFieldValid(resolve) {
+      this.setBeforeCheck(true);
+      this.errorMsg = '';
+      //實作驗證邏輯
+      if (false) {
+        this.errorMsg = '放入錯誤訊息';
+        resolve(false );
+      } else {
+        this.errorMsg = '';
+        resolve(true);
+      }
+    }
+
+    /** 驗證前的設定 */
+    setBeforeCheck(checkValidator: boolean) {
+
+      this.tools.markFormGroup(this.form);
+      // form驗證狀態重製
+      if (!checkValidator) this.form.reset(this.form.getRawValue());
+      // 暫存時不驗證必填
+      checkFieldDefaultValidator(checkValidator, new FormControl(this.form.controls));
+    }
+}
 
 /*外掛欄位自訂的證器*/
 function validateSelf(form: UntypedFormGroup): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     return form.valid ? null : { formInvalid: true };
   };
+}
+
+/** 暫存時不驗證必填 */
+function checkFieldDefaultValidator(checkDefaultValidator: boolean, formControl: FormControl) {
+  if (!checkDefaultValidator && formControl.hasError('required')) {
+    delete formControl.errors['required'];
+    formControl.setErrors(Object.keys(formControl.errors).length === 0 ? null : formControl.errors);
+  }
+  else if (checkDefaultValidator && formControl.valid) {
+    formControl.updateValueAndValidity();
+  }
 }
 
 export interface CustomerInfo {
